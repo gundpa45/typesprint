@@ -2,6 +2,7 @@
     import type { Response,Request } from "express";
     import lessonService  from "../services/lesson.service.js";
 
+    // this is the get off the lesssons 
     async function getLessons(req:Request,res:Response){
         const lessons= await lessonService.getLessons();
 
@@ -29,7 +30,21 @@
         
         
     }
+
+    // thiss is the post of the 
+    async function createLessons(req:Request,res:Response){
+
+        const {title,description,difficuilty,order,content}=req.body();
+
+        const lesson=await lessonService.createLesson({title,description,difficuilty,order,content})
+
+    }
+
+
+
+
     export default {
         getLessons:getLessons,
         getLessonById:getLessonById,
+        createLessons:createLessons
     };

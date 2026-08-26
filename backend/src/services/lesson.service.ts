@@ -1,4 +1,6 @@
 import lessonModel from "../models/lesson.model.js";
+
+// get lesson
 async function getLessons(){
     
     const lessons =await lessonModel.find({})
@@ -7,7 +9,7 @@ async function getLessons(){
 
 
 
-
+// get leson by id 
 
 async function getLessonById(id:string){
 
@@ -31,7 +33,14 @@ async function getLessonById(id:string){
 }
 
 
+
+async function createLesson(title,di){
+
+}
+
+
 export default {
     getLessons,
-    getLessonById
+    getLessonById,
+    createLesson,
 };
