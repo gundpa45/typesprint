@@ -34,8 +34,10 @@ async function getLessonById(id:string){
 
 
 
-async function createLesson(title,di){
+async function createLesson(title:string,description:string,difficulty:string,order:number,content:string){
 
+    const lesson =await lessonModel.create({title,description,difficulty,order,content})
+    return lesson
 }
 
 

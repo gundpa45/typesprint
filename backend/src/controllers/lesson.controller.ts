@@ -34,9 +34,16 @@
     // thiss is the post of the 
     async function createLessons(req:Request,res:Response){
 
-        const {title,description,difficuilty,order,content}=req.body();
+        const {title,description,difficulty,order,content}=req.body;
 
-        const lesson=await lessonService.createLesson({title,description,difficuilty,order,content})
+        const lesson=await lessonService.createLesson({title,description,difficulty,order,content});
+
+        res.status(200).json({
+            msg:"hello ",
+            success:true,
+            lesson
+
+        })
 
     }
 
