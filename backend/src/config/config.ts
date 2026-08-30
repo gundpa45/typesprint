@@ -7,10 +7,12 @@ dotenv.config()
 
 type Config={
     DATABASE_URI: string |undefined, 
+    JWT_SECRET:string,
 }
 
 const config: Config ={
-    DATABASE_URI:process.env.DATABASE_URI
+    DATABASE_URI:process.env.DATABASE_URI || "",
+    JWT_SECRET:process.env.JWT_SECRET || ""
 }
 
 

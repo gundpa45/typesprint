@@ -1,23 +1,58 @@
-import userService from "../services/user.service.js"
+import type { Request, Response } from "express";
 
-async function registerController(req: any, res: any) {
-
-
-    const { username, email, password } = req.body;
+import userService from "../services/user.service.js";
 
 
+// Register controller
+async function registerController(
+    req: Request,
+    res: Response
+) {
+    const {
+        username,
+        email,
+        password
+    } = req.body;
 
-    const createUser= await userService.registerService({ username, email, password })
+    const createUser = await userService.registerService({
+        username,
+        email,
+        password
+    });
 
-    res.status(201).json({ 
+    res.status(201).json({
+        success: true,
         message: "User registered successfully",
-         user: createUser 
-        })
-
+        user: createUser
+    });
 }
 
+
+// Login controller
+async function loginController(
+    req: Request,
+    res: Response
+) {
+    const {
+        email,
+        password
+    } = req.body;
+
+    const loginUser = await userService.loginService({
+        email,
+        password
+    });
+
+    res.status(200).json({
+        success: true,
+        message: "User logged in successfully",
+        user: loginUser.user,
+        token: loginUser.token
+    });
+}
 
 
 export default {
-    register: registerController
-}
+    register: registerController,
+    login: loginController
+};
