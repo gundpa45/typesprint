@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing/LandingPage";
 import Login from "./pages/Login/LoginPage";
 import Register from "./pages/Register/RegisterPage";
+import LessonsPage from "./pages/Lessons/lessonsPage";
 
 function App() {
     return (
@@ -27,7 +28,7 @@ function App() {
 
                 <Route
                     path="/lessons"
-                    element={<div>Lessons page</div>}
+                    element={<LessonsPage />}
                 />
 
                 <Route
